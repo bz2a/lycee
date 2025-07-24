@@ -30,7 +30,6 @@
             margin: 0 auto;
         }
 
-        /* (الجديد) زر تغيير اللغة */
         .language-switcher {
             position: fixed;
             bottom: 20px;
@@ -54,7 +53,6 @@
             transform: scale(1.1);
         }
 
-        /* Navbar */
         .navbar {
             background-color: var(--container-bg);
             padding: 15px 0;
@@ -223,7 +221,7 @@
                 <img src="https://i.imgur.com/ctBZS3P.jpeg" alt="شعار المدرسة">
                 <span class="logo-text" data-lang-key="school_name">ثانوية علي بن ربيعة</span>
             </a>
-            <a href="register.html" class="btn btn-ghost" data-lang-key="register_now">التسجيل الآن</a>
+            <a href="register/" class="btn btn-ghost" data-lang-key="register_now">التسجيل الآن</a>
         </div>
     </nav>
 
@@ -231,7 +229,7 @@
         <div class="container">
             <h1 data-aos="fade-up" data-lang-key="hero_title">صناعة التميز، ورعاية المستقبل</h1>
             <p data-aos="fade-up" data-aos-delay="200" data-lang-key="hero_subtitle">في ثانوية علي بن ربيعة الخاصة، نؤمن بأن التعليم هو أساس بناء جيل واعٍ وقادر على مواجهة تحديات المستقبل. نوفر بيئة تعليمية متكاملة تجمع بين الأصالة والمعاصرة.</p>
-            <a href="register.html" class="btn btn-accent" data-aos="fade-up" data-aos-delay="400" data-lang-key="join_us">انضم إلى نخبنا</a>
+            <a href="register/" class="btn btn-accent" data-aos="fade-up" data-aos-delay="400" data-lang-key="join_us">انضم إلى نخبنا</a>
         </div>
     </header>
 
@@ -346,15 +344,11 @@
             changeLanguage(languages[currentLangIndex]);
         });
 
-        // --- تفعيل كل السكريبتات عند تحميل الصفحة ---
         document.addEventListener('DOMContentLoaded', () => {
-            // تفعيل الحركات
             AOS.init({
                 duration: 800,
                 once: true,
             });
-
-            // ضبط اللغة الافتراضية
             changeLanguage('ar');
         });
     </script>

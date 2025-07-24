@@ -22,11 +22,36 @@
             font-family: 'Cairo', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
+            position: relative;
         }
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        /* (الجديد) زر تغيير اللغة */
+        .language-switcher {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.3s;
+            z-index: 1001;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+        .language-switcher:hover {
+            transform: scale(1.1);
         }
 
         /* Navbar */
@@ -61,7 +86,6 @@
             color: var(--primary-color);
             line-height: 1;
         }
-
         .btn {
             padding: 10px 25px;
             border-radius: 5px;
@@ -90,8 +114,6 @@
             color: #000;
             transform: translateY(-3px);
         }
-
-        /* Hero Section */
         .hero {
             color: var(--text-color);
             text-align: center;
@@ -116,8 +138,6 @@
             margin-right: auto;
             line-height: 1.7;
         }
-        
-        /* Sections */
         .section {
             padding: 80px 0;
             text-align: center;
@@ -128,8 +148,6 @@
             color: var(--primary-color);
             margin-bottom: 60px;
         }
-        
-        /* Features Section */
         #features {
             background-color: var(--container-bg);
             overflow-x: hidden;
@@ -138,7 +156,12 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
+        }
+        html[dir="rtl"] .features-grid {
             text-align: right;
+        }
+        html[dir="ltr"] .features-grid {
+            text-align: left;
         }
         .feature-item {
             background-color: var(--bg-color);
@@ -165,8 +188,6 @@
             color: #b0b0b0;
             line-height: 1.8;
         }
-
-        /* Footer */
         .footer {
             background-color: var(--container-bg);
             color: #aaa;
@@ -174,8 +195,6 @@
             text-align: center;
             border-top: 1px solid var(--border-color);
         }
-        
-        /* (الجديد) تنسيق أيقونات التواصل الاجتماعي */
         .social-links {
             margin-bottom: 20px;
         }
@@ -190,48 +209,51 @@
             color: var(--primary-color);
             transform: translateY(-5px);
         }
-        
     </style>
 </head>
 <body>
+
+    <div class="language-switcher" id="langSwitcher" title="Change Language / تغيير اللغة">
+        <span id="langIndicator">AR</span>
+    </div>
 
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="https://i.imgur.com/ctBZS3P.jpeg" alt="شعار المدرسة">
-                <span class="logo-text">ثانوية علي بن ربيعة</span>
+                <span class="logo-text" data-lang-key="school_name">ثانوية علي بن ربيعة</span>
             </a>
-            <a href="register.html" class="btn btn-ghost">التسجيل الآن</a>
+            <a href="register.html" class="btn btn-ghost" data-lang-key="register_now">التسجيل الآن</a>
         </div>
     </nav>
 
     <header class="hero">
         <div class="container">
-            <h1 data-aos="fade-up">صناعة التميز، ورعاية المستقبل</h1>
-            <p data-aos="fade-up" data-aos-delay="200">في ثانوية علي بن ربيعة الخاصة، نؤمن بأن التعليم هو أساس بناء جيل واعٍ وقادر على مواجهة تحديات المستقبل. نوفر بيئة تعليمية متكاملة تجمع بين الأصالة والمعاصرة.</p>
-            <a href="register.html" class="btn btn-accent" data-aos="fade-up" data-aos-delay="400">انضم إلى نخبنا</a>
+            <h1 data-aos="fade-up" data-lang-key="hero_title">صناعة التميز، ورعاية المستقبل</h1>
+            <p data-aos="fade-up" data-aos-delay="200" data-lang-key="hero_subtitle">في ثانوية علي بن ربيعة الخاصة، نؤمن بأن التعليم هو أساس بناء جيل واعٍ وقادر على مواجهة تحديات المستقبل. نوفر بيئة تعليمية متكاملة تجمع بين الأصالة والمعاصرة.</p>
+            <a href="register.html" class="btn btn-accent" data-aos="fade-up" data-aos-delay="400" data-lang-key="join_us">انضم إلى نخبنا</a>
         </div>
     </header>
 
     <main>
         <section id="features" class="section">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-in">لماذا نحن خيارك الأمثل؟</h2>
+                <h2 class="section-title" data-aos="fade-in" data-lang-key="why_us_title">لماذا نحن خيارك الأمثل؟</h2>
                 <div class="features-grid">
                     <div class="feature-item" data-aos="fade-right" data-aos-delay="100">
                         <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                        <h3>نخبة من المعلمين</h3>
-                        <p>فريقنا التربوي مكون من أساتذة أكفاء وموجهين متخصصين يرافقون أبناءكم في كل خطوة.</p>
+                        <h3 data-lang-key="feature1_title">نخبة من المعلمين</h3>
+                        <p data-lang-key="feature1_desc">فريقنا التربوي مكون من أساتذة أكفاء وموجهين متخصصين يرافقون أبناءكم في كل خطوة.</p>
                     </div>
                     <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon"><i class="fas fa-microscope"></i></div>
-                        <h3>تجهيزات عصرية</h3>
-                        <p>مختبرات علمية متطورة، قاعات دراسية ذكية، ومكتبة غنية لدعم المسار التعليمي.</p>
+                        <h3 data-lang-key="feature2_title">تجهيزات عصرية</h3>
+                        <p data-lang-key="feature2_desc">مختبرات علمية متطورة، قاعات دراسية ذكية، ومكتبة غنية لدعم المسار التعليمي.</p>
                     </div>
                     <div class="feature-item" data-aos="fade-left" data-aos-delay="300">
                         <div class="icon"><i class="fas fa-user-friends"></i></div>
-                        <h3>متابعة فردية</h3>
-                        <p>نولي اهتمامًا خاصًا لكل تلميذ، مع متابعة شخصية ومستمرة لضمان تفوقه الدراسي والنفسي.</p>
+                        <h3 data-lang-key="feature3_title">متابعة فردية</h3>
+                        <p data-lang-key="feature3_desc">نولي اهتمامًا خاصًا لكل تلميذ، مع متابعة شخصية ومستمرة لضمان تفوقه الدراسي والنفسي.</p>
                     </div>
                 </div>
             </div>
@@ -245,16 +267,96 @@
                 <a href="#" target="_blank" title="انستغرام"><i class="fab fa-instagram"></i></a>
                 <a href="#" target="_blank" title="يوتيوب"><i class="fab fa-youtube"></i></a>
             </div>
-            <p>&copy; 2025 ثانوية علي بن ربيعة الخاصة. تصميم وبرمجة الفاروق.</p>
+            <p data-lang-key="copyright">&copy; 2025 ثانوية علي بن ربيعة الخاصة. تصميم وبرمجة الفاروق.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
     <script>
-      AOS.init({
-        duration: 800,
-        once: true,
-      });
+        // --- إعدادات اللغة ---
+        const languages = ['ar', 'fr', 'en'];
+        let currentLangIndex = 0;
+        const langSwitcher = document.getElementById('langSwitcher');
+        const langIndicator = document.getElementById('langIndicator');
+
+        const translations = {
+            ar: {
+                school_name: "ثانوية علي بن ربيعة",
+                register_now: "التسجيل الآن",
+                hero_title: "صناعة التميز، ورعاية المستقبل",
+                hero_subtitle: "في ثانوية علي بن ربيعة الخاصة، نؤمن بأن التعليم هو أساس بناء جيل واعٍ وقادر على مواجهة تحديات المستقبل. نوفر بيئة تعليمية متكاملة تجمع بين الأصالة والمعاصرة.",
+                join_us: "انضم إلى نخبنا",
+                why_us_title: "لماذا نحن خيارك الأمثل؟",
+                feature1_title: "نخبة من المعلمين",
+                feature1_desc: "فريقنا التربوي مكون من أساتذة أكفاء وموجهين متخصصين يرافقون أبناءكم في كل خطوة.",
+                feature2_title: "تجهيزات عصرية",
+                feature2_desc: "مختبرات علمية متطورة، قاعات دراسية ذكية، ومكتبة غنية لدعم المسار التعليمي.",
+                feature3_title: "متابعة فردية",
+                feature3_desc: "نولي اهتمامًا خاصًا لكل تلميذ، مع متابعة شخصية ومستمرة لضمان تفوقه الدراسي والنفسي.",
+                copyright: "&copy; 2025 ثانوية علي بن ربيعة الخاصة. تصميم وبرمجة الفاروق."
+            },
+            fr: {
+                school_name: "Lycée Ali Benrabia",
+                register_now: "S'inscrire",
+                hero_title: "Forger l'Excellence, Nourrir l'Avenir",
+                hero_subtitle: "Au Lycée Privé Ali Benrabia, nous croyons que l'éducation est le fondement d'une génération consciente et capable de relever les défis futurs. Nous offrons un environnement d'apprentissage intégré qui allie authenticité et modernité.",
+                join_us: "Rejoignez notre Élite",
+                why_us_title: "Pourquoi nous choisir ?",
+                feature1_title: "Enseignants d'Élite",
+                feature1_desc: "Notre équipe pédagogique est composée de professeurs compétents et de conseillers spécialisés qui accompagnent vos enfants à chaque étape.",
+                feature2_title: "Installations Modernes",
+                feature2_desc: "Laboratoires scientifiques avancés, salles de classe intelligentes et une riche bibliothèque pour soutenir le parcours éducatif.",
+                feature3_title: "Suivi Individuel",
+                feature3_desc: "Nous accordons une attention particulière à chaque élève, avec un suivi personnalisé et continu pour assurer sa réussite scolaire et son bien-être.",
+                copyright: "&copy; 2025 Lycée Privé Ali Benrabia. Conception et développement par Alfarouk."
+            },
+            en: {
+                school_name: "Ali Benrabia High School",
+                register_now: "Register Now",
+                hero_title: "Forging Excellence, Nurturing the Future",
+                hero_subtitle: "At Ali Benrabia Private High School, we believe that education is the foundation for a conscious generation capable of facing future challenges. We provide an integrated learning environment that combines authenticity and modernity.",
+                join_us: "Join Our Elite",
+                why_us_title: "Why Choose Us?",
+                feature1_title: "Elite Teachers",
+                feature1_desc: "Our educational team consists of competent professors and specialized mentors who accompany your children every step of the way.",
+                feature2_title: "Modern Facilities",
+                feature2_desc: "Advanced science labs, smart classrooms, and a rich library to support the educational journey.",
+                feature3_title: "Individual Follow-up",
+                feature3_desc: "We pay special attention to each student, with personalized and continuous follow-up to ensure their academic and personal success.",
+                copyright: "&copy; 2025 Ali Benrabia Private High School. Designed and developed by Alfarouk."
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            langIndicator.textContent = lang.toUpperCase();
+
+            document.querySelectorAll('[data-lang-key]').forEach(el => {
+                const key = el.getAttribute('data-lang-key');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+        
+        langSwitcher.addEventListener('click', () => {
+            currentLangIndex = (currentLangIndex + 1) % languages.length;
+            changeLanguage(languages[currentLangIndex]);
+        });
+
+        // --- تفعيل كل السكريبتات عند تحميل الصفحة ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // تفعيل الحركات
+            AOS.init({
+                duration: 800,
+                once: true,
+            });
+
+            // ضبط اللغة الافتراضية
+            changeLanguage('ar');
+        });
     </script>
 
 </body>

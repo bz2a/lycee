@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الرئيسية - ثانوية علي بن ربيعة الخاصة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        :root {
+            --bg-color: #121212;
+            --primary-color: #D4AF37;
+            --text-color: #E0E0E0;
+            --container-bg: #1a1a1a;
+            --border-color: #444;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--container-bg);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+        }
+        .logo-text {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-accent {
+            background-color: var(--primary-color);
+            color: #000;
+            border: 2px solid var(--primary-color);
+        }
+        .btn-accent:hover {
+            background-color: #E6C667;
+            border-color: #E6C667;
+            transform: translateY(-3px);
+        }
+        .btn-ghost {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        .btn-ghost:hover {
+            background-color: var(--primary-color);
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
+        .hero {
+            color: var(--text-color);
+            text-align: center;
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+        }
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 2.8em;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 60px;
+        }
+        
+        /* Features Section */
+        #features {
+            background-color: var(--container-bg);
+            overflow-x: hidden;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            text-align: right;
+        }
+        .feature-item {
+            background-color: var(--bg-color);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .feature-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+        }
+        .feature-item .icon {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .feature-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        .feature-item p {
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--container-bg);
+            color: #aaa;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        /* (الجديد) تنسيق أيقونات التواصل الاجتماعي */
+        .social-links {
+            margin-bottom: 20px;
+        }
+        .social-links a {
+            color: #aaa;
+            font-size: 1.5em;
+            margin: 0 15px;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="https://i.imgur.com/ctBZS3P.jpeg" alt="شعار المدرسة">
+                <span class="logo-text">ثانوية علي بن ربيعة</span>
+            </a>
+            <a href="register.html" class="btn btn-ghost">التسجيل الآن</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1 data-aos="fade-up">صناعة التميز، ورعاية المستقبل</h1>
+            <p data-aos="fade-up" data-aos-delay="200">في ثانوية علي بن ربيعة الخاصة، نؤمن بأن التعليم هو أساس بناء جيل واعٍ وقادر على مواجهة تحديات المستقبل. نوفر بيئة تعليمية متكاملة تجمع بين الأصالة والمعاصرة.</p>
+            <a href="register.html" class="btn btn-accent" data-aos="fade-up" data-aos-delay="400">انضم إلى نخبنا</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-in">لماذا نحن خيارك الأمثل؟</h2>
+                <div class="features-grid">
+                    <div class="feature-item" data-aos="fade-right" data-aos-delay="100">
+                        <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h3>نخبة من المعلمين</h3>
+                        <p>فريقنا التربوي مكون من أساتذة أكفاء وموجهين متخصصين يرافقون أبناءكم في كل خطوة.</p>
+                    </div>
+                    <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon"><i class="fas fa-microscope"></i></div>
+                        <h3>تجهيزات عصرية</h3>
+                        <p>مختبرات علمية متطورة، قاعات دراسية ذكية، ومكتبة غنية لدعم المسار التعليمي.</p>
+                    </div>
+                    <div class="feature-item" data-aos="fade-left" data-aos-delay="300">
+                        <div class="icon"><i class="fas fa-user-friends"></i></div>
+                        <h3>متابعة فردية</h3>
+                        <p>نولي اهتمامًا خاصًا لكل تلميذ، مع متابعة شخصية ومستمرة لضمان تفوقه الدراسي والنفسي.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" target="_blank" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" title="انستغرام"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" title="يوتيوب"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 ثانوية علي بن ربيعة الخاصة. تصميم وبرمجة الفاروق.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+    </script>
+
+</body>
+</html>

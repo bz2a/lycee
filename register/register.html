@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل - ثانوية علي بن ربيعة الخاصة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --primary-color: #D4AF37;
+            --text-color: #E0E0E0;
+            --input-bg: #1E1E1E;
+            --border-color: #444;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 700px;
+            border: 1px solid var(--primary-color);
+            position: relative;
+        }
+
+        .language-switcher-corner {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--input-bg);
+            border: 1px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            z-index: 100;
+        }
+        .language-switcher-corner:hover {
+            transform: scale(1.1);
+            background-color: var(--primary-color);
+            color: #000;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .school-name {
+            color: var(--primary-color);
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+
+        .logo-container {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            overflow: hidden;
+            display: block;
+            margin: 0 auto 15px;
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--primary-color); }
+        input[type="text"], input[type="date"], input[type="tel"], input[type="email"] { width: 100%; padding: 12px; background-color: var(--input-bg); border: 1px solid var(--border-color); border-radius: 5px; color: var(--text-color); font-size: 1em; transition: border-color 0.3s, box-shadow 0.3s; }
+        input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+        button[type="submit"] { width: 100%; padding: 15px; background-color: var(--primary-color); color: #000; border: none; border-radius: 5px; font-size: 1.2em; font-weight: bold; cursor: pointer; transition: background-color 0.3s, transform 0.2s; }
+        button[type="submit"]:hover { background-color: #E6C667; transform: translateY(-2px); }
+        button[type="submit"]:disabled { background-color: #555; cursor: not-allowed; }
+        
+        .success-container {
+            text-align: center;
+            color: var(--text-color);
+            display: none;
+            padding: 40px;
+        }
+        .success-container .success-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .success-container h2 {
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .back-to-home {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-to-home a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .site-footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-bottom: 20px;
+            width: 100%;
+        }
+        .site-footer p {
+            margin: 0;
+            font-size: 0.8em;
+            color: #777;
+        }
+        .social-links {
+            margin-bottom: 20px;
+        }
+        .social-links a {
+            color: #aaa;
+            font-size: 1.5em;
+            margin: 0 15px;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="language-switcher-corner" id="langSwitcher" onclick="cycleLanguage()" title="Change Language / تغيير اللغة">
+            <span id="langIndicator">AR</span>
+        </div>
+
+        <div id="formWrapper">
+            <div class="header-section">
+                <div class="logo-container">
+                    <img src="https://i.imgur.com/ctBZS3P.jpeg" alt="Ali Benrabia School Logo" class="logo">
+                </div>
+                <h2 class="school-name">ثانوية علي بن ربيعة الخاصة</h2>
+            </div>
+
+            <h1 data-lang-key="form_title">استمارة التلاميذ</h1>
+
+            <form id="registrationForm">
+
+                <div class="form-group">
+                    <label for="fullName" data-lang-key="full_name">الاسم الكامل</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob" data-lang-key="dob">تاريخ الميلاد</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentPhone" data-lang-key="student_phone">رقم هاتف التلميذ</label>
+                    <input type="tel" id="studentPhone" name="studentPhone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="guardianPhone" data-lang-key="guardian_phone">رقم هاتف الولي</label>
+                    <input type="tel" id="guardianPhone" name="guardianPhone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" data-lang-key="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address" data-lang-key="address">عنوان السكن</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="previousSchool" data-lang-key="previous_school">المؤسسة التعليمية السابقة</label>
+                    <input type="text" id="previousSchool" name="previousSchool" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="guardianRelationship" data-lang-key="guardian_relationship">صلة الولي بالتلميذ</label>
+                    <input type="text" id="guardianRelationship" name="guardianRelationship" required placeholder="مثال: أب، أم، عم، خال...">
+                </div>
+
+                <button type="submit" id="submitBtn" data-lang-key="register_btn">تسجيل</button>
+            </form>
+
+            <div class="back-to-home">
+                <a href="index.html">&larr; العودة إلى الصفحة الرئيسية</a>
+            </div>
+        </div>
+
+        <div class="success-container" id="successContainer">
+            <span class="success-icon">🎉</span>
+            <h2 data-lang-key="success_message"></h2>
+            <p style="color: #4CAF50; font-weight: bold;" data-lang-key="contact_message">سنتواصل معكم قريباً لاستكمال إجراءات التسجيل.</p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="#" target="_blank" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank" title="انستغرام"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" title="يوتيوب"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>جميع الحقوق محفوظة للتصاميم الفاروق</p>
+    </footer>
+
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxzL8U7V8RC2IbCld7upfWwXfqDyWCLZhDAMpGrqIVRkanr-FAFgJtFsUKpAZR5vK30eQ/exec";
+        const form = document.getElementById('registrationForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const langIndicator = document.getElementById('langIndicator');
+        const formWrapper = document.getElementById('formWrapper');
+        const successContainer = document.getElementById('successContainer');
+        const successMessageH2 = successContainer.querySelector('h2[data-lang-key="success_message"]');
+        const languages = ['ar', 'fr', 'en'];
+        let currentLangIndex = 0;
+        
+        const translations = {
+            ar: { 
+                form_title: "استمارة تسجيل التلاميذ", 
+                full_name: "الاسم الكامل", 
+                dob: "تاريخ الميلاد", 
+                student_phone: "رقم هاتف التلميذ", 
+                guardian_phone: "رقم هاتف الولي", 
+                email: "البريد الإلكتروني", 
+                address: "عنوان السكن", 
+                previous_school: "المؤسسة التعليمية السابقة", 
+                guardian_relationship: "صلة الولي بالتلميذ", 
+                register_btn: "تسجيل", 
+                success_message: "🎉 شكراً لتسجيلك!", 
+                contact_message: "سيتم التواصل معك قريباً.", 
+                fill_all_fields: "يرجى ملء جميع الحقول الإلزامية.", 
+                submit_error: "حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.", 
+                sending: "جاري الإرسال..."
+            },
+            fr: { 
+                form_title: "Formulaire d'inscription", 
+                full_name: "Nom complet", 
+                dob: "Date de naissance", 
+                student_phone: "Téléphone de l'élève", 
+                guardian_phone: "Téléphone du tuteur", 
+                email: "Adresse e-mail", 
+                address: "Adresse", 
+                previous_school: "Établissement précédent", 
+                guardian_relationship: "Lien de parenté", 
+                register_btn: "Inscrire", 
+                success_message: "🎉 Merci pour votre inscription!", 
+                contact_message: "Nous vous contacterons bientôt.", 
+                fill_all_fields: "Veuillez remplir tous les champs obligatoires.", 
+                submit_error: "Une erreur est survenue. Veuillez réessayer.", 
+                sending: "Envoi en cours..."
+            },
+            en: { 
+                form_title: "Registration Form", 
+                full_name: "Full Name", 
+                dob: "Date of Birth", 
+                student_phone: "Student's Phone", 
+                guardian_phone: "Guardian's Phone", 
+                email: "Email Address", 
+                address: "Address", 
+                previous_school: "Previous School", 
+                guardian_relationship: "Relationship to Student", 
+                register_btn: "Register", 
+                success_message: "🎉 Thank you for registering!", 
+                contact_message: "We will contact you soon.", 
+                fill_all_fields: "Please fill in all required fields.", 
+                submit_error: "An error occurred. Please try again.", 
+                sending: "Sending..."
+            }
+        };
+
+        function cycleLanguage() { 
+            currentLangIndex = (currentLangIndex + 1) % languages.length; 
+            changeLanguage(languages[currentLangIndex]); 
+        }
+
+        function changeLanguage(lang) { 
+            document.documentElement.lang = lang; 
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'; 
+            langIndicator.textContent = lang.toUpperCase(); 
+            document.querySelectorAll('[data-lang-key]').forEach(el => { 
+                const key = el.getAttribute('data-lang-key'); 
+                if (translations[lang] && translations[lang][key]) { 
+                    el.innerHTML = translations[lang][key]; 
+                } 
+            }); 
+        }
+
+        form.addEventListener('submit', (e) => { 
+            e.preventDefault(); 
+            if (!form.checkValidity()) { 
+                alert(translations[document.documentElement.lang].fill_all_fields); 
+                form.reportValidity();
+                return; 
+            } 
+            
+            submitBtn.disabled = true; 
+            submitBtn.textContent = translations[document.documentElement.lang].sending; 
+            
+            const formData = new FormData(form); 
+            
+            fetch(SCRIPT_URL, { 
+                method: 'POST', 
+                mode: 'no-cors',
+                body: formData 
+            })
+            .then(() => {
+                formWrapper.style.display = 'none'; 
+                successContainer.style.display = 'block'; 
+                successMessageH2.textContent = translations[document.documentElement.lang].success_message;
+            })
+            .catch(error => { 
+                console.error('Error!', error.message); 
+                alert(translations[document.documentElement.lang].submit_error); 
+                submitBtn.disabled = false; 
+                submitBtn.textContent = translations[document.documentElement.lang].register_btn; 
+            }); 
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => { 
+            changeLanguage('ar'); 
+        });
+    </script>
+</body>
+</html>
